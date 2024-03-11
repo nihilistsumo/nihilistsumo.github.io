@@ -13,6 +13,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 @import url("https://fonts.googleapis.com/css?family=Baloo+Paaji|Open+Sans:300,300i,400,400i,600,600i,700,700i");
+
 :root {
   --blue: #1e549f;
   --indigo: #695aa6;
@@ -43,7 +44,6 @@
   --font-family-sans-serif: "Open Sans", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
 *,
 *::before,
 *::after {
@@ -6550,6 +6550,10 @@ a.close.disabled {
   }
 }
 
+.bengali-name {
+  font-family: 'BenSen', Arial, sans-serif;
+}
+
 .tooltip {
   position: absolute;
   z-index: 1070;
@@ -12083,11 +12087,11 @@ pre .code {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  max-width: 550px;
+  max-width: 800px;
 }
 
 .header .header-content .header-title .up {
-  font-size: calc(30px + (60 - 30) * ((100vw - 300px) / (1300 - 300)));
+  font-size: calc(30px + (40 - 30) * ((100vw - 300px) / (1300 - 300)));
   font-weight: 500;
   color: #444;
   margin-bottom: 5px;
@@ -12096,15 +12100,15 @@ pre .code {
 }
 
 .header .header-content .header-title .down {
-  font-size: calc(30px + (75 - 30) * ((100vw - 300px) / (1300 - 300)));
+  font-size: calc(30px + (55 - 30) * ((100vw - 300px) / (1300 - 300)));
   margin-bottom: 0;
   position: relative;
   display: block;
 }
 
 .header .header-content .header-subtitle {
-  font-size: calc(10px + (22 - 10) * ((100vw - 300px) / (1300 - 300)));
-  letter-spacing: calc(1px + (7 - 1) * ((100vw - 300px) / (1300 - 300)));
+  font-size: calc(5px + (22 - 10) * ((100vw - 300px) / (1300 - 300)));
+  letter-spacing: calc(1px + (7 - 5) * ((100vw - 300px) / (1300 - 300)));
   opacity: .8;
   margin-top: -10px;
   margin-bottom: 20px;
@@ -12171,13 +12175,13 @@ pre .code {
 }
 
 .about-img-holder {
-  min-width: 400px;
+  min-width: 50px;
   max-width: 400px;
   margin-right: 20px;
 }
 
 .about-img-holder .about-img {
-  width: 100%;
+  width: 80%;
   margin-bottom: 15px;
 }
 
