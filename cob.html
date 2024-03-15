@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.maateen.me/bensen/font.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>COB</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+</head>
+<body>
+<!-- Page Header -->
+   <header class="header header-mini">
+      <div class="header-title">Clustering Optimization as Blackbox</div>
+      <nav aria-label="breadcrumb">
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+         </ol>
+      </nav>
+   </header> <!-- End Of Page Header -->
+
+<div class="container">
+    <hr>
+    <p>Imagine we're tasked with developing a model that can group data points effectively, based on their similarities.
+        Traditionally, the approach involves using supervised learning, where we train the model with pairs or triplets
+        from a labeled dataset. This method aims to teach the model to position similar data points closer together in
+        the embedding space we're crafting. The underlying hope is that, through exposure to a representative variety of
+        pairs or triplets, the model will learn to discern and thus cluster data points effectively.</p>
+    <p>However, if clustering is our end task, one might wonder why we don't optimize the model directly against a
+        clustering metric, such as the RAND index. Sounds straight-forward but here's the catch: clustering is a discrete
+        process, which means the evaluation metrics for clustering are also discrete functions and therefore
+        non-differentiable. Gradient descent algorithms cannot be effectively guided by such functions, which is a
+        stumbling block for training models, like Transformers, directly with a loss function based on the RAND index.</p>
+    <p>Recent advancements by Vlastelica et al. have introduced a promising workaround. They've demonstrated a technique
+        that effectively generates meaningful gradients from discrete loss functions, a method they term 'blackbox
+        backpropagation'. This opens up the intriguing possibility: could we leverage this technique to train a deep
+        representation model specifically for clustering, guided directly by a clustering metric? Would this approach
+        yield superior clustering results? And importantly, how does its scalability compare with traditional pair or
+        triplet-based training methods?</p>
+    <p>These are the central questions we explore in our work, "Learn The Big Picture: Representation Learning for
+        Clustering," where we delve into the potential of direct optimization for clustering tasks.</p>
+
+    <p><b>Paper:</b> <a href="https://aclanthology.org/2021.repl4nlp-1.15/">Learn The Big Picture: Representation Learning for Clustering</a> </p>
+    <p><b>Githb repo:</b> <a href="https://github.com/nihilistsumo/Blackbox_clustering">Blackbox_clustering</a> </p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.maateen.me/bensen/font.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>QS3M</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="assets/css/meyawo.css">
+</head>
+<body>
+<!-- Page Header -->
+   <header class="header header-mini">
+      <div class="header-title">Query-Specific Siamese Similarity Network</div>
+      <nav aria-label="breadcrumb">
+         <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+         </ol>
+      </nav>
+   </header> <!-- End Of Page Header -->
+
+<div class="container">
+    <hr>
+    <p>In context of search engines, <a href="https://queryunderstanding.com/search-results-clustering-b2fa64c6c809">search result clustering</a>
+    is much more effective in communicating the relevant subtopics
+    related to the query than the traditional list view of hyperlinks. This is crucial in case of broader queries
+    (<a href="https://en.wikipedia.org/wiki/Information_needs#:~:text=It%20is%20the%20actual%2C%20but,field%20to%20get%20an%20answer.">conscious
+    information need</a> - user does not know enough about a subject to form a narrow specific query; presence of ambiguity)
+    for which documents from multiple subtopics can be relevant. Typically, clustering of search results is envisioned
+    as a post processing step of the retrieved results where a clustering algorithm is applied only on the vector
+    representations (e.g. <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf#:~:text=The%20tf%E2%80%93idf%20is%20the,document%20or%20a%20web%20page.">tfidf</a>)
+    of the retrieved documents. However, we hypothesize a more direct involvement of the
+    query to the clustering process is necessary to be able to generate subtopic clusters that are particularly relevant
+    for the query (this is even more apparent for broad queries where there can be multiple clustering of the same set
+    of retrieved docuements) i.e. we need query-specific subtopic clustering. In this work, we develop a query-specific
+    siamese similarity metric (QS3M) that can be leveraged with any distance-based clustering algorithm (e.g.
+    <a href="https://www.datanovia.com/en/lessons/agglomerative-hierarchical-clustering/">HAC</a>) to
+    obtain query-specific subtopic clustering.</p>
+
+    <p><b>How QS3M works</b> - QS3M provides a similarity score for a triplet of a query and a pair of passage/ documents represented
+    as document embeddings using <a href="https://www.sbert.net/">Sentence-BERT</a>.
+    A siamese neural network is used to project the pair of passages and the query in the same latent embedding space
+    (q', pi', pj'). Then another MLP layer obtains the similarity score from the concatenated interaction vectors
+    (pi'-pj', pi'-q', pj'-q') and the individual passage vectors (pi', pj'). Input to the siamese neural networks is the
+    sentence-BERT embeddings.</p>
+
+    <p><b>How QS3M is trained</b> - It is trained as a binary classifier; each training sample is a triplet of a query and a
+        pair of passages with a target binary label denoting whether the pair of passages should share the same cluster
+        in context of the query. Binary classification loss (binary cross entropy) can be employed to optimize. Negative
+        sampling is used to balance the dataset.</p>
+
+    <p><b>Paper:</b> <a href="https://dl.acm.org/doi/abs/10.1145/3529372.3530923">Query-specific subtopic clustering</a> </p>
+    <p><b>Githb repo:</b> <a href="https://github.com/nihilistsumo/QS3M">QS3M</a> </p>
+</div>
+
+</body>
+</html>
